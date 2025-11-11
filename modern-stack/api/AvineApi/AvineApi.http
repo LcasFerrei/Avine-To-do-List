@@ -1,0 +1,6 @@
+@AvineApi_HostAddress = http://localhost:5167
+
+GET {{AvineApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
