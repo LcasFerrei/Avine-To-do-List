@@ -9,9 +9,16 @@ interface TaskFormProps {
   onSave: (tarefa: TarefaFormData, id?: number) => void;
   tarefaParaEditar: Tarefa | null;
   onCancelEdit: () => void;
+  onError: (message: string) => void;
 }
 
-export default function TaskForm({ onSave, tarefaParaEditar, onCancelEdit }: TaskFormProps) {
+export default function TaskForm({ 
+  onSave, 
+  tarefaParaEditar, 
+  onCancelEdit, 
+  onError 
+}: TaskFormProps) {
+  
   const [titulo, setTitulo] = useState('');
   const [descricao, setDescricao] = useState('');
   const [dataVencimento, setDataVencimento] = useState('');
@@ -34,8 +41,9 @@ export default function TaskForm({ onSave, tarefaParaEditar, onCancelEdit }: Tas
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (!titulo) {
-      alert('O título é obrigatório.');
+      onError('O título é obrigatório.'); 
       return;
     }
 
@@ -55,24 +63,17 @@ export default function TaskForm({ onSave, tarefaParaEditar, onCancelEdit }: Tas
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
-      
       <h2 className="text-2xl font-bold text-yellow-400 mb-4">
         {tarefaParaEditar ? 'Editar Tarefa' : 'Adicionar Nova Tarefa'}
       </h2>
-
-      {/* Campo Título */}
       <div>
         <label htmlFor="titulo" className="block text-sm font-medium text-gray-300">Título *</label>
         <input
           type="text" id="titulo" value={titulo}
-          
           onChange={(e) => setTitulo(e.target.value)} 
-
           className="w-full p-2 mt-1 rounded bg-gray-700 border border-gray-600 focus:ring-yellow-500 focus:border-yellow-500"
         />
       </div>
-
-      {/* Campo Descrição */}
       <div>
         <label htmlFor="descricao" className="block text-sm font-medium text-gray-300">Descrição</label>
         <textarea
@@ -81,8 +82,6 @@ export default function TaskForm({ onSave, tarefaParaEditar, onCancelEdit }: Tas
           className="w-full p-2 mt-1 rounded bg-gray-700 border border-gray-600 focus:ring-yellow-500 focus:border-yellow-500"
         />
       </div>
-
-      {/* Campo Data */}
       <div>
         <label htmlFor="dataVencimento" className="block text-sm font-medium text-gray-300">Data de Vencimento</label>
         <input
@@ -91,8 +90,6 @@ export default function TaskForm({ onSave, tarefaParaEditar, onCancelEdit }: Tas
           className="w-full p-2 mt-1 rounded bg-gray-700 border border-gray-600 focus:ring-yellow-500 focus:border-yellow-500"
         />
       </div>
-
-      {/* Botões */}
       <div className="flex space-x-4">
         <button
           type="submit"
@@ -100,7 +97,6 @@ export default function TaskForm({ onSave, tarefaParaEditar, onCancelEdit }: Tas
         >
           {tarefaParaEditar ? 'Salvar Alterações' : 'Salvar Tarefa'}
         </button>
-        
         {tarefaParaEditar && (
           <button
             type="button"
