@@ -138,7 +138,13 @@ export default function HomePage() {
     })
     .sort((a, b) => {
       // Ordenação
-      return a.concluida === b.concluida ? 0 : a.concluida ? 1 : -1;
+      if (a.concluida && !b.concluida) {
+        return 1; 
+      }
+      if (!a.concluida && b.concluida) {
+        return -1; 
+      }
+      return b.id - a.id; 
     });
 
   return (
