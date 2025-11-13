@@ -160,7 +160,6 @@ Set rs = cmd.Execute()
 
   <table>
     <tr>
-      <th>#</th>
       <th>Título</th>
       <th>Vencimento</th>
       <th>Status</th>
@@ -176,7 +175,6 @@ Set rs = cmd.Execute()
     sDoneClass = MyIIf(CInt(rconcluida)=1,"done","")
 %>
     <tr>
-      <td class="<%=sDoneClass%>"><%=rid%></td>
       <td class="<%=sDoneClass%>">
         <strong><%=H(rtitulo)%></strong><br />
         <span class="muted"><%=H(Left("" & rs("descricao"), 140))%></span>
