@@ -11,7 +11,7 @@ Desenvolver uma aplicação web de gerenciamento de tarefas (To-Do List) onde os
 
 ### 🟦 Stack Modern (React + C#)
 
-<p align="center"><img src="../Avine-To-do-List/modern-stack/client/img/Lista_de_tarefa_inicio.jpeg" width="700"/></p>
+<p align="center"><img src="./modern-stack/client/img/Lista_de_tarefa_inicio.jpeg" width="700"/></p>
 <p align="center"><img src="./modern-stack/client/img/Lista_de_tarefa_todas.jpeg" width="700"/></p>
 <p align="center"><img src="./modern-stack/client/img/Lista_de_tarefa_pendentes.jpeg" width="700"/></p>
 <p align="center"><img src="./modern-stack/client/img/Lista_de_tarefas_Editar.jpeg" width="700"/></p>
